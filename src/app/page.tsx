@@ -18,6 +18,8 @@ import { DestinationPotraitList } from "@/components/organism/DestinationPotrait
 import { LuxuryFootages } from "@/components/organism/LuxuryFootages";
 import { ArticleList } from "@/components/organism/ArticleList";
 import { Footer } from "@/components/organism/Footer";
+import { DestinationLoadingPlaceholder } from "@/components/molecules/DestinationLoadingPlaceholder";
+import { ArticleLoadingPlaceholder } from "@/components/molecules/ArticleLoadingPlaceholder";
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
@@ -173,11 +175,12 @@ export default function Home() {
               <h4 className="text-[#004040] group-hover:text-[#D6B66B] my-auto font-semibold">EXPLORE MORE</h4>
             </a>
           </div>
+          
           {
-            isPendingProduct ? 'Loading...' : <DestinationList isDesktop={isDesktopOrLaptop} data={productData} />
+            isPendingProduct ? <DestinationLoadingPlaceholder /> : <DestinationList isDesktop={isDesktopOrLaptop} data={productData} />
           }
           {
-            isPendingProduct ? 'Loading...' : <DestinationPotraitList data={productData} />
+            !isPendingProduct && <DestinationPotraitList data={productData} />
           }
 
           <div className="flex justify-center lg:justify-end xl:justify-end lg:mt-16 xl:mt-16">
@@ -204,7 +207,7 @@ export default function Home() {
           <h1 className="text-[#0B7373] text-[36px] font-unbounded font-bold">Articles</h1>
           <h4 className="text-[#0B7373] text-[24px]">Our curated writings, offering something for every reader.</h4>
 
-          { isPendingArticle ? 'Loading...' : <ArticleList data={articleData} />}
+          { isPendingArticle ? <ArticleLoadingPlaceholder /> : <ArticleList data={articleData} />}
         </div>
       </main>
       <Footer />
