@@ -31,7 +31,7 @@ const ImageSlider = ({ data }: ImageSliderType) => {
     >
       {
         data?.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.src}>
             <Image loader={() => item.src} src={item.src ? item.src : SampleImage} alt="Destination image" width={300} height={250} className='w-full h-[300px] lg:h-[350px] xl:h-[400px]' />
           </SwiperSlide>
         ))

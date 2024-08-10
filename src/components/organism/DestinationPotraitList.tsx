@@ -17,7 +17,7 @@ const MobileSwiper = ({ data }: { data: DestinationPotraitType[] }) => {
     >
       {
         data && data.map((item: DestinationPotraitType, index: number) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <DestinationPotrait
               key={item.id}
               {...item}
