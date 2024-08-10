@@ -1,33 +1,42 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-family: "Albert Sans", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  .image-color-link {
+    background: url(../assets/images/separator-image.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 0 0 0 2000px rgba(83, 83, 83, 0.3);
+  }
+
+  @font-face {
+    font-family: "Thesignature";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('../assets/fonts/Thesignature.ttf') format('truetype');
   }
 }
